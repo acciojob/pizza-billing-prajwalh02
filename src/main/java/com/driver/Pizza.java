@@ -73,11 +73,11 @@ public class Pizza {
             }
 
             if(this.isExtraToppingAdded == true) {
-                this.bill += "Extra Topping Added: " + this.extraToppingPrice+"\n";
+                this.bill += "Extra Toppings Added: " + this.extraToppingPrice+"\n";
             }
 
             if(this.isTakeawayAdded == true) {
-                this.bill += "Paper bag Added: " +this.paperBagPrice+ "\n";
+                this.bill += "Paperbag Added: " +this.paperBagPrice+ "\n";
             }
 
             this.bill += "Total Price: " +this.price;
