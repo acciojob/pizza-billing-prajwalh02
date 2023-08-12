@@ -24,7 +24,7 @@ public class Pizza {
             this.basePrice  = 300;
             this.extraToppingPrice = 70;
         }
-        else {
+        else {                      //for non-veg pizza
             this.basePrice = 400;
             this.extraToppingPrice = 120;
         }
