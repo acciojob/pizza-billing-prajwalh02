@@ -4,7 +4,7 @@ public class Pizza {
 
     private int price;           //total price
     private Boolean isVeg;        //tell whether its veg or non-veg
-    private String bill;          //hold the bill
+    private String bill;           //hold the bill
 
     private int basePrice;
     private int extraCheesePrice;
