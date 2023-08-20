@@ -2,36 +2,26 @@ package com.driver;
 
 public class Pizza {
 
-    private int price;           //total price
-    private Boolean isVeg;        //tell whether its veg or non-veg
-    private String bill;           //hold the bill
+    private int price;
+    private Boolean isVeg;
+    private String bill;
 
-    private int basePrice;
-    private int extraCheesePrice;
-    private int extraToppingPrice;
-    private int paperBagPrice;
+    private boolean cheeseAdded;
+    private boolean toppingsAdded;
+    private boolean bagAdded;
+    private boolean billGenerated;
 
-    // making flag
-    private boolean isExtraCheeseAdded;
-    private boolean isExtraToppingAdded;
-    private boolean isTakeawayAdded;
-    private boolean isBillGenerated;
 
-    public Pizza(Boolean isVeg){        //constructor
+    public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         // your code goes here
-        if(this.isVeg == true) {        //for veg pizza
-            this.basePrice  = 300;
-            this.extraToppingPrice = 70;
+        if(this.isVeg==true){
+            this.price+=300;
+            this.bill="Base Price Of The Pizza: 300\n";
+        }else{
+            this.price+=400;
+            this.bill="Base Price Of The Pizza: 400\n";
         }
-        else {                      //for non-veg pizza
-            this.basePrice = 400;
-            this.extraToppingPrice = 120;
-        }
-        this.extraCheesePrice = 80;
-        this.paperBagPrice = 20;
-
-        this.price = this.basePrice;
     }
 
     public int getPrice(){
@@ -39,51 +29,59 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        // your code goes here
-        if(this.isExtraCheeseAdded == false) {
-            this.price += this.extraCheesePrice;
-            this.isExtraCheeseAdded = true;
+//        if(this.bill.contains("Extra Cheese Added:")){
+//            return;
+//        }
+        if(this.cheeseAdded){
+            return;
         }
+        // your code goes here
+        this.price+=80;
+        this.cheeseAdded=true;
+        this.bill+="Extra Cheese Added: 80\n";
     }
 
     public void addExtraToppings(){
+//        if(this.bill.contains("Extra Toppings Added:")){
+//            return;
+//        }
+        if(this.toppingsAdded){
+            return;
+        }
+        this.toppingsAdded=true;
         // your code goes here
-        if(this.isExtraToppingAdded == false) {
-            this.price += this.extraToppingPrice;
-            this.isExtraToppingAdded = true;
+        if(this.isVeg==true){
+            this.price+=70;
+            this.bill+="Extra Toppings Added: 70\n";
+        }else{
+            this.bill+="Extra Toppings Added: 120\n";
+            this.price+=120;
         }
     }
 
     public void addTakeaway(){
-        // your code goes here
-        if(this.isTakeawayAdded == false) {
-            this.price += this.paperBagPrice;
-            this.isTakeawayAdded = true;
+//        if(this.bill.contains("Paperbag Added:")){
+//            return;
+//        }
+        if(this.bagAdded){
+            return;
         }
+        this.bagAdded=true;
+        // your code goes here
+        this.price+=20;
+        this.bill+="Paperbag Added: 20\n";
     }
 
     public String getBill(){
         // your code goes here
-
-        if(this.isBillGenerated == false) {
-            this.bill = "Base Price Of The Pizza: " +this.basePrice + "\n";
-
-            if(this.isExtraCheeseAdded == true) {
-                this.bill += "Extra Cheese Added: " + this.extraCheesePrice + "\n";
-            }
-
-            if(this.isExtraToppingAdded == true) {
-                this.bill += "Extra Toppings Added: " + this.extraToppingPrice+"\n";
-            }
-
-            if(this.isTakeawayAdded == true) {
-                this.bill += "Paperbag Added: " +this.paperBagPrice+ "\n";
-            }
-
-            this.bill += "Total Price : " +this.price;
-            this.isBillGenerated = true;
+//        if(this.bill.contains("Total Price:")){
+//            return this.bill;
+//        }
+        if(this.billGenerated){
+            return this.bill;
         }
-
+        this.billGenerated = true;
+        this.bill+="Total Price: " + this.price+"\n";
         return this.bill;
     }
 }

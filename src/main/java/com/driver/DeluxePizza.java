@@ -2,10 +2,10 @@ package com.driver;
 
 public class DeluxePizza extends Pizza {
 
-    public DeluxePizza(Boolean isVeg) {    //constructor
+    public DeluxePizza(Boolean isVeg) {
         super(isVeg);
         // your code goes here
-        this.addExtraCheese();          //in deluxe pizza only this two things is by default added
+        this.addExtraCheese();
         this.addExtraToppings();
     }
 }
